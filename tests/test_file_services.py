@@ -1,7 +1,7 @@
 from os import path
-from . import BaseTestCase
 
 from services import file_services
+from . import BaseTestCase
 
 
 class TestFileServices(BaseTestCase):
@@ -25,7 +25,8 @@ class TestFileServices(BaseTestCase):
 
     def test_should_return_default_tuple_if_file_does_not_exists(self):
         invalid_file = 'invalid.txt'
-        error_message = """Check if the function is returning a tuple with the default values "(0, 0, [])",
+        error_message = """Check if the function is returning a tuple 
+        with the default values "(0, 0, [])",
         if the file does not exists."""
 
         returned_data = file_services.get_ttask_umax_and_new_users_from_file(
@@ -47,3 +48,29 @@ class TestFileServices(BaseTestCase):
         )
         self.assertEqual(len(returned_data), 3)
         self.assertEqual(returned_data, expected_data)
+
+    def test_should_return_1_with_invalid_input(self):
+        invalid_input_01 = '100'
+        returned_value_01 = file_services.validate_ttask_umax_value(
+            invalid_input_01)
+
+        self.assertEqual(returned_value_01, 1)
+
+        invalid_input_02 = '-50'
+        returned_value_02 = file_services.validate_ttask_umax_value(
+            invalid_input_02)
+
+        self.assertEqual(returned_value_02, 1)
+
+    def test_should_return_validated_value(self):
+        valid_input_01 = ' 5   '
+        returned_value_01 = file_services.validate_ttask_umax_value(
+            valid_input_01)
+
+        self.assertEqual(returned_value_01, 5)
+
+        valid_input_02 = '\n \r 2  \n '
+        returned_value_02 = file_services.validate_ttask_umax_value(
+            valid_input_02)
+
+        self.assertEqual(returned_value_02, 2)

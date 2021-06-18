@@ -3,6 +3,8 @@ from os import path
 
 def validate_ttask_umax_value(raw_value: str) -> int:
     """Remove the spaces, convert to integer and validate the value.
+    
+    Valid input: 1 <= value <= 10
 
     Args:
         raw_value (str): 'ttask' or 'umax' input from file.
