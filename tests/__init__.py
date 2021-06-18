@@ -31,7 +31,7 @@ class BaseTestCase(TestCase):
             '1\n',
             '1\n',
             '0\n',
-            '15\n',
+            '15',
         ]
 
     def tearDown(self):
