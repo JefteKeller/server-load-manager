@@ -25,7 +25,7 @@ class TestFileServices(BaseTestCase):
 
     def test_should_return_default_tuple_if_file_does_not_exists(self):
         invalid_file = 'invalid.txt'
-        error_message = """Check if the function is returning a tuple 
+        error_message = """Check if the function is returning a tuple
         with the default values "(0, 0, [])",
         if the file does not exists."""
 

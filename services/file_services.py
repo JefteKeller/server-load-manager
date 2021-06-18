@@ -3,7 +3,7 @@ from os import path
 
 def validate_ttask_umax_value(raw_value: str) -> int:
     """Remove the spaces, convert to integer and validate the value.
-    
+
     Valid input: 1 <= value <= 10
 
     Args:
@@ -21,7 +21,8 @@ def validate_ttask_umax_value(raw_value: str) -> int:
 
 
 def get_ttask_umax_and_new_users_from_file(filename: str) -> tuple:
-    """Read the file and return a tuple with: ttask, umax and a list with the number of new users on each tick.
+    """Read the file and return a tuple with: ttask,
+    umax and a list with the number of new users on each tick.
 
     Args:
         filename (str): string indicating the path to the file.
@@ -51,12 +52,12 @@ def get_ttask_umax_and_new_users_from_file(filename: str) -> tuple:
     )
 
 
-def write_lines_to_file(filename: str, file_data: list) -> None:
+def write_lines_to_file(filename: str, file_data: list[str]) -> None:
     """Write a list of strings into the file.
 
     Args:
         filename (str): string indicating the path to the file.
         file_data (list): a list of strings to be written into the file.
     """
-    with open(filename, 'w') as f:
-        f.writelines(file_data)
+    with open(filename, 'w') as file:
+        file.writelines(file_data)

@@ -1,6 +1,6 @@
-def get_available_server(server_list: list, umax: int) -> list:
+def get_available_server(server_list: list[list], umax: int) -> list:
     """Search for a server that has the capacity to hold a user.
-    
+
     Args:
         server_list (list): a list of servers.
         umax (int): capacity of each server.
@@ -15,12 +15,12 @@ def get_available_server(server_list: list, umax: int) -> list:
     return []
 
 
-def register_user(user: dict, server: list, server_list: list):
+def register_user(user: dict, server: list, server_list: list[list]):
     """Add a new user to a server.
-    
-    In case the server is not available, 
+
+    In case the server is not available,
     create a new server with the user, and register it into the server list.
-    
+
     Args:
         new_user (dict): user to register.
         server (list): a server to register the user in case it is available.
@@ -33,7 +33,7 @@ def register_user(user: dict, server: list, server_list: list):
         server_list.append(new_server)
 
 
-def optimize_server_usage(server_list: list, umax: int) -> None:
+def optimize_server_usage(server_list: list[list], umax: int) -> None:
     """Optimize the use of the servers, merging servers.
 
     Args:
@@ -53,10 +53,10 @@ def optimize_server_usage(server_list: list, umax: int) -> None:
     server_list[:] = optimized_server_list
 
 
-def clean_completed_tasks(server_list: list, current_cicle: int) -> None:
+def clean_completed_tasks(server_list: list[list], current_cicle: int) -> None:
     """Remove completed tasks from the servers.
-    
-    Iterates over a list of servers, 
+
+    Iterates over a list of servers,
     and keep only the tasks that completes their cicle after the current one.
 
     Args:
@@ -69,9 +69,9 @@ def clean_completed_tasks(server_list: list, current_cicle: int) -> None:
         ]
 
 
-def shutdown_inactive_servers(server_list: list) -> None:
+def shutdown_inactive_servers(server_list: list[list]) -> None:
     """Remove unused servers.
-    
+
     Iterate over a list of servers and keep those with active tasks.
 
     Args:
@@ -80,7 +80,7 @@ def shutdown_inactive_servers(server_list: list) -> None:
     server_list[:] = [server for server in server_list if server]
 
 
-def generate_server_load_log(server_list: list) -> str:
+def generate_server_load_log(server_list: list[list]) -> str:
     """Create a string logging the Server Load.
 
     Args:
@@ -99,7 +99,7 @@ def generate_server_load_log(server_list: list) -> str:
     return new_log_line
 
 
-def calculate_server_bill(server_list: list, server_cost: int) -> int:
+def calculate_server_bill(server_list: list[list], server_cost: int) -> int:
     """Calculate the server costs for each cicle.
 
     Args:
